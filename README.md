@@ -1,8 +1,11 @@
-# Funeral Zone PHP Code Test 
+# ReadMe
 
-You need to refactor this class, it is a simple class that makes a call to a http API to retrieve a list of books and return them. Think about extensibility - how could you easily add other book seller APIs in the the future, handle different API formats, different query types (by publisher, by year published etc - things like that). 
+## Usage
 
-Refactor this to what you consider to be production ready code.
+* Run `composer-install`
+* Run `vendor\bin\phpunit --bootstrap vendor\autoload.php tests\BookSellerStrategyManagerTest.php` to run the test cases
 
-## Getting started
-Simply fork this repository and commit and push your changes to yor fork.
+## Comments
+
+* I have decided to define constant format (json/xml) inside every strategy because I don't see any reason why you should retrieve data from the same book seller one time in JSON and other times in XML format. It should be defined once for a seller. 
+* I could have moved some of the repeating code from strategies to an abstract strategy, but I have decided not to. I prefer to avoid creating unnecessary abstract classes, especially if they can lower the overall readability and simpleness of the code.
